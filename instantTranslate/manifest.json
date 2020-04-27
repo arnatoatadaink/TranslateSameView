@@ -1,0 +1,33 @@
+﻿{
+  "name": "Translate and display the selection",
+  "version": "1.0.0",
+  "manifest_version": 2,
+  "description": "instantTranslation",
+  "default_locale": "en",
+
+  "browser_action": {
+    "default_title": "translate",
+	"default_popup": "popup.html"
+  },
+  "permissions" : [
+    "contextMenus",
+	"activeTab",
+    "https://translate.google.co.jp/*"
+  ],
+
+  "content_scripts": [
+    {
+      "matches": [
+	    "<all_urls>"
+      ],
+      "js": [
+        "content.js"
+      ]
+    }
+  ],
+  "web_accessible_resources":["images/close.png"],
+  "background": {
+    "scripts": ["storage.js","event.js"],
+    "persistent": false
+  }
+}
